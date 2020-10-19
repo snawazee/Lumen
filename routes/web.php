@@ -23,4 +23,14 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('authors', ['uses' => 'AuthorController@create']);
     $router->delete('authors/{id}', ['uses' => 'AuthorController@delete']);
     $router->put('authors/{id}', ['uses' => 'AuthorController@update']);
+    //////////////////////////////////////////////////////////////////////
+    
+
+    $router->get('users',  ['uses' => 'UserController@showAllUsers']);
+    $router->get('users/{id}', ['uses' => 'UserController@showOneUser']);
+    $router->post('users', ['uses' => 'UserController@create']);
+    $router->delete('users/{id}', ['uses' => 'UserController@delete']);
+    $router->put('ueers/{id}', ['uses' => 'UserController@update']);
+
+
   });
