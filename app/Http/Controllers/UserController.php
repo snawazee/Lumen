@@ -21,21 +21,21 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'name'    => 'required',
+            'email'   => 'required|email|unique:users',
             'address' => 'required',
-            'city' => 'required|alpha',
-            'state' => 'required|alpha',
+            'city'    => 'required|alpha',
+            'state'   => 'required|alpha',
             'pincode' => 'required',
             'country' => 'required|alpha',
-            'mobile' => 'required|unique:users',
+            'mobile'  => 'required|unique:users',
         ]);
 
         $user = User::create($request->all());
 
         return response()->json($user, 201);
-        return response()->json($auther);
-    }
+        
+    } 
 
     public function update($id, Request $request)
     {
