@@ -22,18 +22,19 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email|unique:authors',
+            'email' => 'required|email|unique:users',
             'address' => 'required',
             'city' => 'required|alpha',
             'state' => 'required|alpha',
             'pincode' => 'required',
             'country' => 'required|alpha',
-            'mobile' => 'required',
+            'mobile' => 'required|unique:users',
         ]);
 
-        $author = Author::create($request->all());
+        $user = User::create($request->all());
 
-        return response()->json($author, 201);
+        return response()->json($user, 201);
+        return response()->json($auther);
     }
 
     public function update($id, Request $request)
@@ -41,7 +42,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->update($request->all());
 
-        return response()->json($author, 200);
+        return response()->json($user, 200);
     }
 
     public function delete($id)
