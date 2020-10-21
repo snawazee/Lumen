@@ -18,13 +18,6 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('authors',  ['uses' => 'AuthorController@showAllAuthors']);
-    $router->get('authors/{id}', ['uses' => 'AuthorController@showOneAuthor']);
-    $router->post('authors', ['uses' => 'AuthorController@create']);
-    $router->delete('authors/{id}', ['uses' => 'AuthorController@delete']);
-    $router->put('authors/{id}', ['uses' => 'AuthorController@update']);
-    //////////////////////////////////////////////////////////////////////
-    
 
     $router->get('users',  ['uses' => 'UserController@showAllUsers']);
     $router->get('users/{id}', ['uses' => 'UserController@showOneUser']);
@@ -32,5 +25,4 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->delete('users/{id}', ['uses' => 'UserController@delete']);
     $router->put('ueers/{id}', ['uses' => 'UserController@update']);
 
-
-  });
+});
